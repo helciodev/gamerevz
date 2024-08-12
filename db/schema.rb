@@ -13,9 +13,9 @@
 ActiveRecord::Schema[7.1].define(version: 2024_08_12_112626) do
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.string "writer"
+    t.string "writers"
     t.string "cover_image"
-    t.string "director"
+    t.string "directors"
     t.string "production_company"
     t.text "description"
     t.date "release_date"
