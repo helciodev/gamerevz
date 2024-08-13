@@ -2,18 +2,51 @@
 <html>
   <head>
     <title>Gamerevz</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %> 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+    <!-- <header>
+      <nav class="bg-slate-800">
+        <div class="bg-black h-full">
+        
+
+        </div>
+      </nav>
+    </header> -->
+   <%= render "layouts/header" %>
+    <main class="container mx-auto mt-28 px-5"><%= yield %></main>
+    <footer class="bg-black">
+      <p class="text-white">Made with ❤️ by <%= link_to "Helcio", "https://github.com/helciodev", target:"blank" %> </p>
+    </footer>
   </body>
+
+<script>
+  var nav = document.getElementById('site-menu');
+var header = document.getElementById('top');
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= 400) {
+    // adjust this value based on site structure and header image height
+    nav.classList.add('nav-sticky');
+    header.classList.add('pt-scroll');
+  } else {
+    nav.classList.remove('nav-sticky');
+    header.classList.remove('pt-scroll');
+  }
+});
+
+function navToggle() {
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('menu');
+
+  btn.classList.toggle('open');
+  nav.classList.toggle('flex');
+  nav.classList.toggle('hidden');
+}
+</script>
 </html>

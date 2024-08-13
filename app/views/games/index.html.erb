@@ -1,1 +1,5 @@
-<h1 class="text-3xl font-bold text-red-500">hello user</h1>
+<ul>
+  <% @games.each do |game| %>
+  <li><%=render("game-card", object:game)%></li>
+  <% end %>
+</ul>

@@ -50,7 +50,7 @@ Game.create!([
   production_company:'Digital Illusions CE(DICE)',
   release_date: '2021-11-19',
   description: 'In the near future the world has entered a set of constant chaos with a massive immigration crisis birthing a rebellion against the last all encompassing world government.',
-  cover_image:'battlefiled-2042.jpeg'
+  cover_image:'battlefield-2042.jpeg'
   },
   { title: "Call of Duty: Modern Warfare",
   writers: 'Brian Bloom-Ben Chaney-Jimmie Myers',
