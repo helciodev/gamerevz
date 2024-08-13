@@ -11,3 +11,12 @@
 }
 
 */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > label {
+  @apply text-cyan-700;
+}

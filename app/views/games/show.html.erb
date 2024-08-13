@@ -1,7 +1,7 @@
-<section>
-  <h1><%= @game.title %></h1>
+<section class="bg-white">
+  <h1 class="text-3xl font-bold text-cyan-900 mb-4"><%= @game.title %></h1>
 
-  <div class="border border-gray-600">
+  <div class="">
     <div class="flex gap-4">
       <div><%= image_tag @game.cover_image, class:"h-full w-full" %></div>
       <div class="genre mt-2">
@@ -12,7 +12,14 @@
             action
           </li>
         </ul>
-
+        <ul class="flex gap-2 directors mt-3">
+        <%= render "director", game:@game %> 
+      
+        </ul>
+        <ul class="flex gap-2 directors mt-3">
+            <%= render "writer", game:@game %>
+      
+        </ul>
         <div class="full-description mt-8">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit,
           incidunt vel rem recusandae nesciunt cumque voluptatem, molestiae modi
@@ -20,11 +27,17 @@
           assumenda pariatur odit, nihil quo ratione architecto voluptatibus
           laborum ducimus! Minus architecto ipsa sunt atque.
         </div>
+
+        <%= link_to 'Edit', edit_game_path(@game), class:'bg-gray-400 text-white' %>
       </div>
     </div>
   </div>
-  <div class="actions">
-    <%= button_to "add to favorites", "#" %> <%= link_to "Add review" %>
+  <div class="actions mt-3 flex gap-3 text-white">
+    <%= button_to "Add to favorites", "#", class:" rounded-md bg-black
+    hover:bg-cyan-700 transition-all px-4 py-2" %>
+    <!-- prettier-ignore -->
+    <%= link_to "Add review", "#", class:" rounded-md bg-black
+    hover:bg-cyan-700 transition-all px-4 py-2" %>
   </div>
   <div class="details">lorem</div>
 </section>

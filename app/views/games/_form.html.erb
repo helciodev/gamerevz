@@ -1,0 +1,25 @@
+<%= form_with(model: game) do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :directors %>
+<%= f.text_field :directors %>
+
+<%= f.label :writers %>
+<%= f.text_field :writers %>
+
+<%= f.label :production_company %>
+<%= f.text_field :production_company %>
+
+<%= f.label :release_date %>
+<%= f.date_field :release_date %>
+
+<%= f.label :cover_image %>
+<%= f.text_field :cover_image%>
+
+<%= f.label :description %>
+<%= f.text_area :description%>
+
+<%= f.submit %>
+<% end %>
