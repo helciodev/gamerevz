@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+genres = [
+  "Action", "Adventure"
+]
 Game.create!([
   { title: 'God Of War',
   writers: 'Matthew Sophos-Richard Zangrande Gauber-Cory Barlog',
