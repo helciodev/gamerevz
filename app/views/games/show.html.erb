@@ -20,15 +20,11 @@
             <%= render "writer", game:@game %>
       
         </ul>
-        <div class="full-description mt-8">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit,
-          incidunt vel rem recusandae nesciunt cumque voluptatem, molestiae modi
-          illo sed, dolores quidem. Consequatur eius, aliquam qui ipsum fugit
-          assumenda pariatur odit, nihil quo ratione architecto voluptatibus
-          laborum ducimus! Minus architecto ipsa sunt atque.
+        <div class="full-description mt-8 text-xl mb-6 font-medium text-gray-800 ">
+         <%= @game.description %>
         </div>
 
-        <%= link_to 'Edit', edit_game_path(@game), class:'bg-gray-400 text-white' %>
+        <%= link_to 'Edit', edit_game_path(@game), class:'bg-gray-400 text-white p-2 mt-6 rounded-sm hover:bg-gray-600' %>
       </div>
     </div>
   </div>

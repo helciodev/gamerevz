@@ -18,5 +18,19 @@ form {
 }
 
 form > label {
-  @apply text-cyan-700;
+  @apply text-cyan-700 my-3;
+}
+
+form > input[type='submit'] {
+  @apply bg-cyan-800 text-white px-3 py-2 w-1/4 rounded-md my-3;
+}
+
+form input[type='text'],
+form input[type='date'],
+form textarea {
+  @apply border border-gray-200 rounded-md;
+}
+
+.field_with_errors > input {
+  @apply w-full border border-gamerevz-red transition-all;
 }
