@@ -6,11 +6,15 @@
       <div class="h-64 w-[23rem]"><%= image_tag @game.cover_image, class:"h-full w-full" %></div>
       <div class="genre mt-2">
         <ul class="flex gap-2">
+          <% if @game.genres.present? %>
+              <% @game.genres.each do |genre| %>
           <li
             class="rounded-3xl capitalize border-2 text-sm border-gray-200 p-2"
           >
-            action
+            <%= genre.name %>
           </li>
+             <% end %>
+          <% end %>
         </ul>
         <ul class="flex gap-2 directors mt-3">
         <%= render "director", game:@game %> 
@@ -19,12 +23,15 @@
         <ul class="flex gap-2 directors mt-3">
             <%= render "writer", game:@game %>
         </ul>
-        <p class="mt-3"> <span class="font-bold text-cyan-700">release date: </span><%= @game.release_date %></p>
+        <p class="mt-3"> <span class="font-bold text-cyan-700">release date: </span><%= format_date(@game.release_date) %></p>
         <div class="full-description mt-8 text-xl mb-6 font-medium text-gray-800 ">
          <%= @game.description %>
         </div>
+        <div class="flex justify-end px-8 gap-2">
 
-        <%= link_to 'Edit', edit_game_path(@game), class:'bg-gray-400 text-white p-2 mt-6 rounded-sm hover:bg-gray-600' %>
+          <%= link_to 'Edit Game', edit_game_path(@game), class:'bg-gray-400 text-white p-2 mt-6 rounded-sm hover:bg-gray-600' %>
+          <%= link_to 'Delete Game', @game, data:{turbo_method:'delete', turbo_confirm:'Are you sure'}, class:'bg-red-400 text-white p-2 mt-6 rounded-sm hover:bg-red-600' %>
+        </div>
       </div>
     </div>
   </div>

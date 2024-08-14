@@ -34,3 +34,19 @@ form textarea {
 .field_with_errors > input {
   @apply w-full border border-gamerevz-red transition-all;
 }
+
+.genres label[for='game_genres'] {
+  @apply w-full my-2;
+}
+
+.genres label {
+  @apply text-cyan-700;
+}
+
+form input[type='checkbox'] {
+  @apply border border-gray-200 rounded-sm p-3;
+}
+
+form input[type='checkbox']:checked {
+  @apply outline-none bg-cyan-700;
+}

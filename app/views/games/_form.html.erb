@@ -20,6 +20,11 @@
 
 <%= f.label :description %>
 <%= f.text_area :description, rows: 5%>
+<div class="flex gap-3 flex-wrap items-center genres">
+
+    <%= f.label :genres %>
+    <%= f.collection_check_boxes :genre_ids, Genre.order(:name), :id, :name%>
+</div>
 
 <%= f.submit %>
 <% end %>

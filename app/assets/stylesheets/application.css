@@ -1,7 +1,5 @@
 /* custom non-Tailwind CSS */
 
-@import 'toastr';
-
 body {
   background-color: #fbfcf8;
 }
