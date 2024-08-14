@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   has_many :categorizations, dependent: :destroy
   has_many :genres, through: :categorizations
   has_many :reviews
-  has_many :reviewers, through: :reviews, resource: :user
+  has_many :reviewers, through: :reviews, source: :user
   before_save :get_slug
 
   validates :title, presence: true, uniqueness: true

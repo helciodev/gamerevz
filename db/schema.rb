@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_164130) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_14_192525) do
   create_table "categorizations", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "genre_id", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_164130) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
   end
 
   add_foreign_key "categorizations", "games"
