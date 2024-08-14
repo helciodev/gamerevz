@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_103138) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_14_164130) do
   create_table "categorizations", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "genre_id", null: false
@@ -39,6 +39,27 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_103138) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "review_text"
+    t.decimal "rate", precision: 3, scale: 1
+    t.integer "user_id", null: false
+    t.integer "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_reviews_on_game_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "categorizations", "games"
   add_foreign_key "categorizations", "genres"
+  add_foreign_key "reviews", "games"
+  add_foreign_key "reviews", "users"
 end
