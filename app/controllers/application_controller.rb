@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+  private
   def rate_bg(rate)
     case rate
     when 0..4
@@ -11,5 +12,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :rate_bg
+
+
+  def current_user
+    User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+
+
+  def require_signin
+    session[:intended_url] = request.url
+
+    redirect_to new_session_path, alert: 'You need to sign in first' unless current_user.present?
+  end
+  helper_method :rate_bg, :current_user
+
+
 end

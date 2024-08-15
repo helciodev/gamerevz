@@ -35,6 +35,7 @@
       </div>
     </div>
   </div>
+  <% if current_user.present? %>
   <div class="actions flex gap-3 text-white my-3">
     <%= button_to "♥️ Add to favorites", "#", class:" rounded-md bg-black
     hover:bg-cyan-700 transition-all px-4 py-2" %>
@@ -42,5 +43,5 @@
     <%= link_to "Add review", new_game_review_path(@game), class:" rounded-md bg-black
     hover:bg-cyan-700 transition-all px-4 py-2" %>
   </div>
- 
+ <% end %>
 </section>

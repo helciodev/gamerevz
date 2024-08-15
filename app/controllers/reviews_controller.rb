@@ -1,12 +1,14 @@
 class ReviewsController < ApplicationController
 before_action :get_review
+before_action :require_signin
+
   def new
       @review = @game.reviews.new
   end
 
   def create
     @review = @game.reviews.new(review_params)
-
+    @review.user = current_user
     if(@review.save)
       redirect_to @game, notice: "Your review for #{@game.title} added successfuly"
     else
