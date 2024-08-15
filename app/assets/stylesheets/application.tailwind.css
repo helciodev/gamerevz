@@ -29,7 +29,8 @@ form input[type='text'],
 form input[type='date'],
 form textarea,
 form input[type='password'],
-form input[type='email'] {
+form input[type='email'],
+form input[type='number'] {
   @apply border border-gray-200 rounded-md;
 }
 

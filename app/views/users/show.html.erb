@@ -1,3 +1,43 @@
-<section class="bg-white">
-  <h1><%= @user.name %></h1>
+<section class="bg-white p-4">
+  <h1 class="capitalize text-3xl text-cyan-600"><%= @user.name %></h1>
+  <h2 class="mt-5 text-xl text-cyan-800"><%= mail_to @user.email %></h2>
+  <div class="mt-4">
+    <%= link_to 'Edit Accout', edit_user_path(@user), class:'bg-gray-400
+    text-white p-2 mt-6 rounded-sm hover:bg-gray-600' %>
+    <!-- prettier-ignore -->
+    <%= link_to 'Delete Account', @user, data:{turbo_method:'delete', turbo_confirm:'Are you sure'}, class:'bg-red-400 text-white p-2 mt-6 rounded-sm hover:bg-red-600' %>
+  </div>
+  <div
+    id="reviews-and-favorites"
+    class="mt-20 flex-col md:flex gap-3 md:flex-row"
+  >
+    <div id="reviews">
+      <% if @user.reviews.present? %>
+      <!-- prettier-ignore -->
+      <h3 class="font-bold text-2xl text-cyan-900 uppercase mb-8"><%= @user.name %> reviews</h3>
+      <% @user.reviews.each do |review| %>
+      <div class="border rounded-sm border-gray-100 flex gap-4">
+        <div class="md:h-96 md:w-96">
+          <%= image_tag(review.game.cover_image) %>
+        </div>
+        <div class="p-3">
+          <h4 class="text-xl font-semibold text-cyan-800 py-3">
+            <%= review.game.title %>
+          </h4>
+          <p><%= review.review_text %></p>
+
+          <%= content_tag :p, review.rate, class:"rounded-full text-white
+          font-bold inline-block p-3 mt-4 #{rate_bg(review.rate)}" %>
+        </div>
+      </div>
+      <% end %> <% end %>
+    </div>
+    <div class="favorites">
+      <h4 class="text-xl font-semibold text-cyan-800 py-3">favorites</h4>
+      <% @user.games_reviewed.each do |games_reviewed| %>
+      <div class="h-40 w-28"><%= image_tag(games_reviewed.cover_image) %></div>
+
+      <% end %>
+    </div>
+  </div>
 </section>

@@ -3,8 +3,8 @@ class User < ApplicationRecord
   before_save :get_slug
 
   has_secure_password
-  has_many :reviews
-  has_many :games_reviewd, through: :reviews, source: :game
+  has_many :reviews, dependent: :destroy
+  has_many :games_reviewed, through: :reviews, source: :game
 
   validates :name, presence: true
   validates :email, format:{with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

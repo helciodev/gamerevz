@@ -35,7 +35,7 @@ before_action :get_user, except:[:index, :new, :create]
 
   def destroy
     @user.destroy
-    flash[:notice] = "Sad to see you leave 😢"
+    flash[:alert] = "Sad to see you leave 😢"
     redirect_to root_url, status: :see_other
   end
 
