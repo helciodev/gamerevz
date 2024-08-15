@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :get_user, except:[:index, :new]
+before_action :get_user, except:[:index, :new, :create]
   def index
     @users = User.all
   end
@@ -9,7 +9,9 @@ before_action :get_user, except:[:index, :new]
   end
 
   def create
-    if @user.save(user_params)
+    @user = User.new(user_params)
+
+    if @user.save
       redirect_to @user, notice:"User created successfully ☑️"
     else
       render :new, status: :unprocessable_entity
@@ -46,6 +48,6 @@ before_action :get_user, except:[:index, :new]
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirm)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

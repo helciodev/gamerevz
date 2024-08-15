@@ -2,3 +2,4 @@ app/views/layouts/application.html.erb
 app/views/games/show.html.erb
 app/views/games/_form.html.erb
 app/views/games/_error.html.erb
+app/views/users/_form.html.erb
