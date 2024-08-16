@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :reviews
+    resources :favorites
   end
 
   resource :session, only: [:new, :create, :destroy]

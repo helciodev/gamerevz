@@ -1,16 +1,7 @@
 class ApplicationController < ActionController::Base
 
   private
-  def rate_bg(rate)
-    case rate
-    when 0..4
-      "bg-red-700"
-    when 5..6
-      "bg-yellow-700"
-    else
-      "bg-cyan-700"
-    end
-  end
+
 
 
 
@@ -24,7 +15,19 @@ class ApplicationController < ActionController::Base
 
     redirect_to new_session_path, alert: 'You need to sign in first' unless current_user.present?
   end
-  helper_method :rate_bg, :current_user
+
+  def require_admin
+    redirect_to root_url, alert:'Only admin users can access this route.' unless current_user.present? && current_user.admin
+  end
+
+  def is_admin?
+    current_user && current_user.admin? if current_user
+  end
+
+  def is_current_user?(user)
+    user == current_user if current_user.present?
+  end
+  helper_method :current_user, :is_current_user?, :is_admin?
 
 
 end

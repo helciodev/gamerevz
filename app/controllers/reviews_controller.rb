@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-before_action :get_review
+before_action :get_game
 before_action :require_signin
 
   def new
@@ -17,20 +17,28 @@ before_action :require_signin
   end
 
   def edit
-
+    @review = @game.reviews.find(params[:id])
   end
 
   def update
+    @review = @game.reviews.find(params[:id])
 
+    if @review.update(review_params)
+      redirect_to @game, notice:"Review updated successfuly"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-
+    @review = @game.reviews.find(params[:id])
+    @review.destroy
+    redirect_to @game, notice:"Review deleted successfuly"
   end
 
   private
 
-  def get_review
+  def get_game
     @game = Game.find_by(slug:params[:game_id])
   end
 

@@ -1,5 +1,8 @@
 class GamesController < ApplicationController
-before_action :get_game, except:[:new, :create, :index]
+  before_action :require_signin,  except:[:index, :show]
+  before_action :require_admin,except:[:index, :show]
+  before_action :get_game, except:[:new, :create, :index]
+
   def index
     @games = Game.all
   end

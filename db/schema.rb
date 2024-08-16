@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_192525) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_16_215227) do
   create_table "categorizations", force: :cascade do |t|
     t.integer "game_id", null: false
     t.integer "genre_id", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_192525) do
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_categorizations_on_game_id"
     t.index ["genre_id"], name: "index_categorizations_on_genre_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_favorites_on_game_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -57,10 +66,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_192525) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.boolean "admin"
   end
 
   add_foreign_key "categorizations", "games"
   add_foreign_key "categorizations", "genres"
+  add_foreign_key "favorites", "games"
+  add_foreign_key "favorites", "users"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
 end

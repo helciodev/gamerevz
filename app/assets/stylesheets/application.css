@@ -1,5 +1,4 @@
 /* custom non-Tailwind CSS */
-
 body {
   background-color: #fbfcf8;
 }
@@ -73,4 +72,16 @@ body {
 
 .open .hamburger__bottom-bun {
   transform: rotate(-45deg) translateY(0px);
+}
+
+.review-img {
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
+  object-fit: inherit;
+}
+
+.game-show-img {
+  object-fit: contain;
 }
