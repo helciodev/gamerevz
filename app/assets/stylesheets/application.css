@@ -83,5 +83,7 @@ body {
 }
 
 .game-show-img {
-  object-fit: contain;
+  width: inherit;
+  object-fit: inherit;
+  height: inherit;
 }

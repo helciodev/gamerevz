@@ -34,13 +34,13 @@
       </div>
       <% end %> <% end %>
     </div>
-    <% if @user.games_
+    <% if !@games_liked.empty? %>
     <div class="favorites">
       <h4 class="text-xl font-semibold text-cyan-800 py-3">favorites</h4>
-      <% @user.games_reviewed.each do |games_reviewed| %>
-      <div class="h-40 w-28"><%= image_tag(games_reviewed.cover_image) %></div>
+      <% @games_liked.each do |games_liked| %>
+      <div class="h-40 w-28"><%= image_tag(games_liked.cover_image) %></div>
 
-      <% end %>
+      <% end %> <% end %>
     </div>
   </div>
 </section>

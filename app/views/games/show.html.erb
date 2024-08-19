@@ -1,9 +1,9 @@
-<section class="bg-white">
+<section class="bg-white p-4">
   <h1 class="text-3xl font-bold text-cyan-900 mb-4"><%= @game.title %></h1>
 
   <div class="">
     <div class="flex gap-4">
-      <div class="h-64 w-[23rem]"><%= image_tag @game.cover_image, class:"h-full w-full", alt:"cover image for #{@game.title}"%></div>
+      <div class="h-80 w-[23rem]"><%= image_tag @game.cover_image, class:"game-show-img ", alt:"cover image for #{@game.title}"%></div>
       <div class="genre mt-2">
         <ul class="flex gap-2">
           <% if @game.genres.present? %>
@@ -38,15 +38,27 @@
     </div>
   </div>
   <% if current_user.present? %>
+  
   <div class="actions flex gap-3 text-white my-3">
-    <%= button_to "♥️ Add to favorites", "#", class:" rounded-md bg-black
+    <% if @favorite.present? %>
+    <%= button_to "♥️ Remove from favorite", game_favorite_path(@game, @favorite), class:" rounded-md bg-black
+    hover:bg-cyan-700 transition-all px-4 py-2", method:'delete' %>
+
+    <% else %>
+    <%= button_to "♥️ Add to favorites", game_favorites_path(@game), class:" rounded-md bg-black
     hover:bg-cyan-700 transition-all px-4 py-2" %>
+    <% end %>
+   
     <!-- prettier-ignore -->
-     
+
+     <% if !@review  %>
     <%= link_to "Add review", new_game_review_path(@game), class:" rounded-md bg-black
     hover:bg-cyan-700 transition-all px-4 py-2" %>
+    <% end %>
+
   </div>
  <% end %>
+ <p class="font-bold text-sm text-cyan-950"><%= @likers.size %> likes</p>
 
  <div class="mt-10 border-t-2 border-dashed border-gray-100 py-6">
   <h3 class="text-cyan-950 font-bold text-3xl">All Reviews</h3>
@@ -57,7 +69,7 @@
       <div class="flex justify-between items-end p-3">
         <div class="flex">
 
-          <h5 class="font-bold text-2xl text-cyan-900 flex gap-3 items-baseline"><%= review.user.name %>  <%= content_tag :span, number_with_precision(review.rate, precision:0), class:"rounded-full py-2 px-4 text-white #{rate_bg(review.rate)}" %>
+          <h5 class="font-bold text-2xl text-cyan-900 flex gap-3 items-baseline"><%= review.user.name %>  <%= content_tag :span, number_with_precision(review.rate, precision:1), class:"rounded-full py-2 px-4 text-white #{rate_bg(review.rate)}" %>
           </h5>
         </div>
 

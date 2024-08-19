@@ -9,6 +9,10 @@ class GamesController < ApplicationController
 
   def show
 
+    @favorite = @game.favorites.find_by(user_id: current_user.id) if current_user
+    @review = @game.reviews   .find_by(user_id:current_user.id) if current_user
+    @likers = @game.likers.all
+
   end
 
   def new

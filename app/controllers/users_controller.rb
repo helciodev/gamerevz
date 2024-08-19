@@ -20,7 +20,7 @@ before_action :get_user, except:[:index, :new, :create]
   end
 
   def show
-
+    @games_liked = @user.games_liked.all
   end
 
   def edit

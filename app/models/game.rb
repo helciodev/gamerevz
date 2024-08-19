@@ -4,6 +4,8 @@ class Game < ApplicationRecord
   has_many :genres, through: :categorizations
   has_many :reviews
   has_many :reviewers, through: :reviews, source: :user
+  has_many :favorites
+  has_many :likers, through: :favorites, source: :user
   before_save :get_slug
 
   validates :title, presence: true, uniqueness: true
