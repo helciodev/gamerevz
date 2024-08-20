@@ -40,7 +40,9 @@
     <div class="favorites">
       <h4 class="text-xl font-semibold text-cyan-800 py-3">favorites</h4>
       <% @games_liked.each do |games_liked| %>
-      <div class="h-40 w-28"><%= image_tag(games_liked.cover_image) %></div>
+      <div class="h-40 w-28">
+        <%= link_to image_tag(games_liked.cover_image), game_liked %>
+      </div>
 
       <% end %> <% end %>
     </div>

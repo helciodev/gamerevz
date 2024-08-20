@@ -23,7 +23,7 @@
       <p
         class="rounded-full <%= rate_bg(object.average_rate) %> mt text-white h-12 w-12 font-extrabold text-center grid content-center"
       >
-        <%= number_with_precision(object.average_rate, precision:2) %>
+        <%= number_with_precision(object.average_rate, precision:1) %>
       </p>
       <% end %>
     </div>
