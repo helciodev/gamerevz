@@ -12,7 +12,7 @@ class GamesController < ApplicationController
     @favorite = @game.favorites.find_by(user_id: current_user.id) if current_user
     @review = @game.reviews   .find_by(user_id:current_user.id) if current_user
     @likers = @game.likers.all
-    @reviews = @game.reviews.all.order(cre)
+    @reviews = @game.reviews.ascendent_order
 
   end
 
