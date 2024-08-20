@@ -1,0 +1,13 @@
+<section class="bg-white p-5">
+  <h1 class="capitalize text-3xl text-cyan-600">Users</h1>
+
+  <ul class="mt-6">
+    <% @users.each do |user| %>
+    <div>
+      <h2 class="text-cyan-700 font-bold 2xl capitalize">
+        <%= link_to user.name, user %>
+      </h2>
+    </div>
+    <% end %>
+  </ul>
+</section>
