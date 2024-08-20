@@ -64,7 +64,7 @@
   <h3 class="text-cyan-950 font-bold text-3xl">All Reviews</h3>
 
   <ul>
-    <% @game.reviews.each do |review| %>
+    <% @game.reviews.order(created_at).each do |review| %>
       <li class="mb-3 border-b-2 border-dashed border-gray-50 py-3">
       <div class="flex justify-between items-end p-3">
         <div class="flex">
