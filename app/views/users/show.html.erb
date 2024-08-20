@@ -26,7 +26,7 @@
         </div>
         <div class="p-3">
           <h4 class="text-xl font-semibold text-cyan-800 py-3">
-            <%= review.game.title %>
+            <%= link_to review.game.title, review.game %>
           </h4>
           <p><%= review.review_text %></p>
 
@@ -39,9 +39,9 @@
     <% if !@games_liked.empty? %>
     <div class="favorites">
       <h4 class="text-xl font-semibold text-cyan-800 py-3">favorites</h4>
-      <% @games_liked.each do |games_liked| %>
+      <% @games_liked.each do |game_liked| %>
       <div class="h-40 w-28">
-        <%= link_to image_tag(games_liked.cover_image), game_liked %>
+        <%= link_to image_tag(game_liked.cover_image), game_liked %>
       </div>
 
       <% end %> <% end %>
