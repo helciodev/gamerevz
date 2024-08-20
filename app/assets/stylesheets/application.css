@@ -87,3 +87,10 @@ body {
   object-fit: inherit;
   height: inherit;
 }
+
+.inherit {
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
+}
