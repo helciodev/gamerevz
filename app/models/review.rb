@@ -7,4 +7,6 @@ class Review < ApplicationRecord
 
   scope :average_rate, -> {average(:rate)}
 
+  scope :ascendent_order, -> {order(created_at: :desc)}
+
 end
