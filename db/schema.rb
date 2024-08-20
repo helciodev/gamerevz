@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_215227) do
   enable_extension "plpgsql"
 
   create_table "categorizations", force: :cascade do |t|
-    t.integer "game_id", null: false
-    t.integer "genre_id", null: false
+    t.bigint "game_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_categorizations_on_game_id"
@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_215227) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "game_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "game_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_favorites_on_game_id"
@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_16_215227) do
   create_table "reviews", force: :cascade do |t|
     t.text "review_text"
     t.decimal "rate", precision: 3, scale: 1
-    t.integer "user_id", null: false
-    t.integer "game_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_reviews_on_game_id"
