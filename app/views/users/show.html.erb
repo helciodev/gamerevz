@@ -18,8 +18,10 @@
       <!-- prettier-ignore -->
       <h3 class="font-bold text-2xl text-cyan-900 uppercase mb-8"><%= @user.name %> reviews</h3>
       <% @user.reviews.each do |review| %>
-      <div class="border rounded-sm border-gray-100 flex gap-4">
-        <div class="md:h-96 md:w-72">
+      <div
+        class="border rounded-sm border-gray-100 flex-col mb-4 md:flex md:flex-row gap-4"
+      >
+        <div class="w-full h-[27.75rem] md:h-96 md:w-72">
           <%= image_tag review.game.cover_image, class:"review-img" %>
         </div>
         <div class="p-3">

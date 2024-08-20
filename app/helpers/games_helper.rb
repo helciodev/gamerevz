@@ -1,6 +1,6 @@
 module GamesHelper
 
-  def pluralize(objectArr, word)
+  def custom_pluralize(objectArr, word)
     objectArr.split('-').size > 1 ? word.pluralize : word
   end
 

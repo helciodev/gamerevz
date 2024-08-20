@@ -13,6 +13,11 @@ class Game < ApplicationRecord
   validates :description, length: {minimum:90, maximum:300}
   validates :cover_image, format: {with: /\w+\.(jpeg|png)\z/, message:'Image has to be jpeg or png file'}
 
+
+def average_rate
+  reviews.average_rate
+end
+
   def to_param
     slug
   end

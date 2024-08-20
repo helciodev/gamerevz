@@ -19,11 +19,13 @@
       </p>
     </div>
     <div class="flex justify-center items-center pt-5">
+      <% if object.average_rate.present? %>
       <p
-        class="rounded-full bg-cyan-500 mt text-white h-12 w-12 font-extrabold text-center grid content-center"
+        class="rounded-full <%= rate_bg(object.average_rate) %> mt text-white h-12 w-12 font-extrabold text-center grid content-center"
       >
-        7
+        <%= object.average_rate %>
       </p>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <% if game.directors.present? %>
 <li class="font-bold text-cyan-700">
-  <%= pluralize(game.directors, 'Director') %>:
+  <%= custom_pluralize(game.directors, 'Director') %>:
 </li>
 <% game.directors.split('-').each_with_index do |director, index| %>
 <li class="director-before">

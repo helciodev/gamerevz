@@ -1,9 +1,9 @@
 <section class="bg-white p-4">
   <h1 class="text-3xl font-bold text-cyan-900 mb-4"><%= @game.title %></h1>
 
-  <div class="">
-    <div class="flex gap-4">
-      <div class="h-80 w-[23rem]"><%= image_tag @game.cover_image, class:"game-show-img ", alt:"cover image for #{@game.title}"%></div>
+  <div>
+    <div class="flex-col border-emerald-500 gap-4 md:flex md:flex-row">
+      <div class="h-80 w-[16rem] md:w-[23rem]"><%= image_tag @game.cover_image, class:"game-show-img ", alt:"cover image for #{@game.title}"%></div>
       <div class="genre mt-2">
         <ul class="flex gap-2">
           <% if @game.genres.present? %>
@@ -12,7 +12,7 @@
             class="rounded-3xl capitalize border-2 text-sm border-gray-200 p-2"
           >
             <%= genre.name %>
-          </li>
+          </li> 
              <% end %>
           <% end %>
         </ul>
@@ -58,7 +58,7 @@
 
   </div>
  <% end %>
- <p class="font-bold text-sm text-cyan-950"><%= @likers.size %> likes</p>
+ <p class="font-bold text-sm text-cyan-950 mt-2"> <%= pluralize(@likers.size, 'like') %></p>
 
  <div class="mt-10 border-t-2 border-dashed border-gray-100 py-6">
   <h3 class="text-cyan-950 font-bold text-3xl">All Reviews</h3>

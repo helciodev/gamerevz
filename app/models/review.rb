@@ -5,4 +5,6 @@ class Review < ApplicationRecord
   validates :review_text, length: {minimum:100, maximum: 1000}
   validates :rate, presence: true
 
+  scope :average_rate, -> {average(:rate)}
+
 end

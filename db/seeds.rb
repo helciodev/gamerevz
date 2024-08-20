@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-genres = ["Action","Action adventure","Adventure","Puzzle","Role playing","Simulation","Strategy","Sports","MMO"]
+genres = ["Action","Action adventure","Adventure","Puzzle","Role playing","Simulation","Strategy","Sports","MMO", 'Family', "Sci-Fi"]
 
 genres.each { |genre_name| Genre.create!(name: genre_name )}
 
