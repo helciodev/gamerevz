@@ -1,14 +1,18 @@
 <% if flash[:notice] %>
 <script>
   toastr.info('something was done ');
-  console.log('something happened');
 </script>
-
+<div
+  class="sticky right-0 top-0 p-4 text-white shadow-sm rounded-sm bg-green-600 text-center"
+>
+  <%= flash[:notice] %>
+</div>
 <% end %>
 <!-- prettier-ignore -->
 <% if flash[:alert] %>
-<script>
-  toastr.info('some other thing was done');
-  console.log('some other thing happened');
-</script>
+<div
+  class="sticky right-0 p-4 text-white shadow-sm rounded-sm bg-red-600 text-center"
+>
+  <%= flash[:alert] %>
+</div>
 <% end %>
