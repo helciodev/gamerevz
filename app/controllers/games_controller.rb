@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   before_action :get_game, except:[:new, :create, :index]
 
   def index
+
     @games = Game.all
   end
 
