@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
 
   resources :games do
-    resources :reviews
+    resources :reviews do
+      resources :likes
+    end
     resources :favorites
   end
 
