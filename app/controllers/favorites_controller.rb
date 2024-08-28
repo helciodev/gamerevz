@@ -3,7 +3,6 @@ before_action :require_signin
 before_action :get_game
 
 def create
-
   @favorite = @game.favorites.create!(user:current_user)
   redirect_to @game
 end

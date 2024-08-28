@@ -11,4 +11,7 @@ class Review < ApplicationRecord
 
   scope :ascendent_order, -> {order(created_at: :desc)}
 
+  scope :liked_by, ->(user) {
+    joins(:likes).where(likes: { user_id: user.id })
+  }
 end

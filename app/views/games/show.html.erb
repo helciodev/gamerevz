@@ -97,32 +97,49 @@
  <div class="mt-10 border-t-2 border-dashed border-gray-100 py-6">
   <% if !@reviews.empty? %>
   <h3 class="text-cyan-950 font-bold text-3xl">All Reviews</h3>
-
   <ul>
     <% @reviews.each do |review| %>
       <li class="mb-3 border-b-2 border-dashed border-gray-50 py-3">
-      <div class="flex justify-between items-end p-3">
-        <div class="flex">
-
-          <h5 class="font-bold text-2xl text-cyan-900 flex gap-3 items-baseline"><%= link_to review.user.name, review.user %>  <%= content_tag :span, number_with_precision(review.rate, precision:1), class:"rounded-full py-2 px-4 text-white #{rate_bg(review.rate)}" %>
-          </h5>
+        <div class="flex justify-between items-end p-3">
+          <div class="flex">
+            <h5 class="font-bold text-2xl text-cyan-900 flex gap-3 items-baseline">
+              <%= link_to review.user.name, review.user %>  
+              <%= content_tag :span, number_with_precision(review.rate, precision: 1), class: "rounded-full py-2 px-4 text-white #{rate_bg(review.rate)}" %>
+            </h5>
+          </div>
+  
+          <div>
+            <span class="italic text-sm text-gray-400"><%= time_ago_in_words(review.created_at) %> ago</span>
+          </div>
         </div>
-
+  
+        <p class="py-2 px-3"><%= review.review_text %></p>
+  
+        <div class="actions flex justify-between gap-3">
+          <div>
+            <% if @liked_reviews.include?(review.id) %>
+              <%= button_to image_tag("like-filled.png", alt: "Unlike"), game_review_like_path(@game, review, find_like(review)), method: :delete, class: "text-xl text-cyan-700" %>
+            <% else %>
+              <%= button_to image_tag("like-outline.png", alt: "Like"), game_review_likes_path(@game, review, find_like(review)), class: "text-xl text-cyan-700" %>
+            <% end %>
+          </div>
+  
+          <div>
+            <% if current_user && review.user == current_user %>
+              <%= link_to "Edit Review", edit_game_review_path(@game, review), class: "border-b border-gray-200 pb-1 hover:border-b-gray-400 transition-all" %>
+              <%= link_to "Delete Review", game_review_path(@game, review), method: :delete, data: { turbo_confirm: "Delete your review for #{@game.title}?" }, class: "border-b border-red-200 pb-1 hover:border-b-red-400 transition-all" %>
+            <% end %>
+          </div>
+        </div>
+  
         <div>
-          <span class="italic text-sm text-gray-400"><%= time_ago_in_words(review.created_at) %> ago</span>
+          <%= pluralize(review.likes.size, "like") %>
         </div>
-      </div>
-      <p class="py-2 px-3"><%= review.review_text %></p>
-      <div class="actions flex justify-end gap-3">
-        
-        <% if current_user && review.user == current_user %>
-          <%= link_to "Edit Review",edit_game_review_path(@game, review), class:"border-b border-gray-200 pb-1 hover:border-b-gray-400 transition-all" %>
-          <%= link_to "Delete Review", game_review_path(@game, review), data:{turbo_method:"delete", turbo_confirm: "Delete your review for #{@game.title} ?"}, class:"border-b border-red-200 pb-1 hover:border-b-red-400 transition-all" %>
-        <% end %>
-      </div>
       </li>
     <% end %>
   </ul>
+  
+
   <% end %>
  </div>
 </section>
