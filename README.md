@@ -129,16 +129,6 @@ Follow along the steps below to get a copy at your local machine.
 
 - Open browser at http://localhost:3000/
 
-## Testing
-
-To test the project run the below cmd from your project root directory.
-
-```
-rspec
-
-OR
-
-rspec --format doc
 ```
 
 ## Author
@@ -159,3 +149,4 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./LICENSE) licensed.
+```
