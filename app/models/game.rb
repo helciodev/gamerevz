@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   has_many :reviewers, through: :reviews, source: :user
   has_many :favorites
   has_many :likers, through: :favorites, source: :user
-  before_save :get_slug
+  before_save :set_slug
 
   validates :title, presence: true, uniqueness: true
   validates :production_company, presence: true
@@ -24,7 +24,7 @@ end
   private
 
 
-  def get_slug
+  def set_slug
     self.slug = title.parameterize
   end
 end

@@ -30,7 +30,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_to @game, notice:"#{@game.title} created successfuly ☑️"
+      redirect_to @game, notice:" #{@game.title} created successfuly ☑️"
     else
       render :new, status: :unprocessable_entity
     end

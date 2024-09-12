@@ -124,7 +124,7 @@ Follow along the steps below to get a copy at your local machine.
 - Start your server
 
   ```
-  rails server
+  bin/dev
   ```
 
 - Open browser at http://localhost:3000/
