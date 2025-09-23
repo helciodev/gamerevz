@@ -1,0 +1,11 @@
+<%= form_with(model: [game, review]) do |f| %>
+
+<%= f.label :review_text, "Your Review" %>
+<%= f.text_area :review_text, rows:5 %>
+
+<%= f.label :rate, "Your Rate" %>
+<%= f.number_field :rate, step:'0.1', min:0, max:10%>
+
+
+<%= f.submit  %>
+<% end %>

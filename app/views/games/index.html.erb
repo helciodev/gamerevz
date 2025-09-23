@@ -1,0 +1,5 @@
+<ul>
+  <% @games.each do |game| %>
+  <li><%=render("game-card", object:game)%></li>
+  <% end %>
+</ul>

@@ -1,0 +1,9 @@
+<% if game.directors.present? %>
+<li class="font-bold text-cyan-700">
+  <%= custom_pluralize(game.directors, 'Director') %>:
+</li>
+<% game.directors.split('-').each_with_index do |director, index| %>
+<li class="director-before">
+  <% if index > 0 %> &bull; <%end %> <%= director %>
+</li>
+<%end %> <% end %>

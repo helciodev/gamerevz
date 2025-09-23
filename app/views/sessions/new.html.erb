@@ -1,0 +1,17 @@
+<section class="bg-white p-5 md:max-w-5xl mx-auto">
+    <h1 class="text-3xl text-cyan-700 font-bold">
+    LOgin To Your Account
+    </h1>
+
+<%= form_with(url:session_path) do |f| %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    
+    <%= f.label :password %>
+    <%= f.password_field:password%>
+
+    <%= f.submit "Login" %>
+    
+<% end %>
+</section>
